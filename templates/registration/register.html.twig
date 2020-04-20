@@ -1,0 +1,92 @@
+{% extends 'layout/layout.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block projects %}
+<div class="heading">
+	<h1>S'inscrire
+	</h1>
+	<span>S'inscrire pour participer au forum</span>
+</div>
+<div class="cd-half-width fivth-slide">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="content fivth-content">
+					<div class="row">
+
+						<div class="col-md-3">
+							<div class="left-info">
+								<p>Maecenas imperdiet sagittis lacus, ut consequat velit iaculis id. Praesent eu consequat urna. Morbi justo dolor, ornare sed lorem et, auctor iaculis ligula.
+									<br><br>
+									<em>5566 Donec mollis libero<br>at metus luctus 10660</em>
+								</p>
+								<ul class="social-icons">
+									<i>
+										<a href="#">
+											<i class="fa fa-facebook"></i>
+										</a>
+									</i>
+									<i>
+										<a href="#">
+											<i class="fa fa-twitter"></i>
+										</a>
+									</i>
+									<i>
+										<a href="#">
+											<i class="fa fa-linkedin"></i>
+										</a>
+									</i>
+									<i>
+										<a href="#">
+											<i class="fa fa-rss"></i>
+										</a>
+									</i>
+									<i>
+										<a href="#">
+											<i class="fa fa-behance"></i>
+										</a>
+									</i>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-9">
+
+							{{ form_start(registrationForm) }}
+							<div class="row">
+								<fieldset>
+									<div class="col-md-4">{{ form_row(registrationForm.email, {'label': 'Email', 'attr': {'placeholder': 'Adresse email ...'}}) }}</div>
+									<div class="col-md-4">{{ form_row(registrationForm.plainPassword, {'label': 'Mot de passe', 'attr': {'placeholder': 'Mot de passe...'}}) }}</div>
+									<div class="col-md-4">{{ form_row(registrationForm.confirm_password, {'label': 'Confirmation de mot de passe', 'attr': {'placeholder': 'repetez identique votre mot de passe'}}) }}</div>
+								</fieldset>
+							</div>
+							<div class="row">
+								<fieldset>
+									<div class="col-md-4">{{ form_row(registrationForm.username, {'label': 'Nom complet', 'attr': {'placeholder': 'Identite ...'}}) }}</div>
+									<div class="col-md-4">{{ form_row(registrationForm.address, {'label': 'Adresse localisation', 'attr': {'placeholder': 'Adresse'}}) }}</div>
+									<div class="col-md-4">{{ form_row(registrationForm.expertise, {'label': 'Domaine d\'expertise', 'attr': {'placeholder': 'Fonction....'}}) }}</div>
+                                </fieldset>
+                            </div>
+                             <div class="row">
+                               <fieldset>
+                                <div class="col-md-4">{{ form_row(registrationForm.agreeTerms) }}</div>
+                                <div class="col-md-4">{{ form_row(registrationForm.imageFile) }}</div>
+								<div class="col-md-4"><button class="btn btn-lg">Register</button></div>
+                                </fieldset>
+                             </div>
+							{{ form_end(registrationForm) }}
+						</div>
+
+						
+
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}

@@ -1,0 +1,42 @@
+security:
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        users:
+            entity:
+                class: App\Entity\User
+                property: email
+    encoders:
+        App\Entity\User:
+            algorithm: plaintext
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous:  ~
+            http_basic: ~
+            guard:
+                authenticators:
+                    - App\Security\UserAuthenticator
+            provider : users
+            logout:
+                path: /logout
+                # where to redirect after logout
+                target: /home
+            form_login:
+                default_target_path: /home
+                login_path: app_login
+                check_path: app_login
+
+            
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+         - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/profile, roles: ROLE_USER }

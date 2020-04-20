@@ -1,0 +1,283 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+	<html
+	class="no-js" lang=""> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>With Africa</title>
+
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link
+		rel="shortcut icon" href="{{asset('favicon.ico') }}">
+
+		<!-- Place your favicon.ico and apple-touch-icon.png in the template root directory -->
+		<link href="{{asset('img/icone.ico')}}" rel="shortcut icon">
+
+		{% block styles %}
+			<link rel="stylesheet" href="{{ asset('font-awesome-4.5.0/css/font-awesome.min.css')}}">
+			<link rel="stylesheet" href="{{ asset('css1/bootstrap.min.css')}}">
+            <link rel="stylesheet" href="{{ asset('//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css')}}">
+			<link rel="stylesheet" href="{{ asset('css1/bootstrap-theme.min.css')}}">
+			<link rel="stylesheet" href="{{ asset('css1/fontAwesome.css')}}">
+			<link
+			rel="stylesheet" href="{{ asset('css1/templatemo-style.css')}}">
+
+
+			<!-- Google Fonts -->
+			<link
+			href="{{ asset('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800')}}" rel="stylesheet">
+
+			<!-- Font Awesome -->
+
+			<script type="text/javascript" src="{{ asset('js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
+		{% endblock %}
+
+	</head>
+	<body class="fixed-sn pink-skin">
+		{% block header %}
+			<div class="overlay"></div>
+			<!--==========================
+			                        Header Section
+			                    ============================-->
+
+			<section class="top-part">
+				<video controls autoplay loop>
+					<source src="{{asset('videos/video.mp4')}}" type="video/mp4">
+					<source src="{{asset('videos/video.mp4')}}" type="video/ogg">
+					Bienvenue sur le site de With Africa
+				</video>
+			</section>
+
+
+			<!--==========================
+			                        Header Section
+			                    ============================-->
+			<!-- #header -->
+		{% endblock %}
+
+		<!--==========================
+		          			Body Section
+		        		============================-->
+
+		<section class="cd-hero">
+			<div class="cd-slider-nav">
+				{% block menu %}
+					<nav>
+						<span class="cd-marker item-1"></span>
+						<ul>
+							<li class="selected">
+								<a href="#0">
+									<div class="image-icon"><img src="{{asset('img/home-icon.png')}}"></div>
+									<h6>Accueil</h6>
+								</a>
+							</li>
+							<li  class="">
+								<a href="#0">
+									<div class="image-icon"><img src="{{asset('img/about-icon.png')}}"></div>
+									<h6>Qui ?</h6>
+								</a>
+							</li>
+
+							<li class="">
+								<a href="#0">
+									<div class="image-icon"><img src="{{asset('img/featured-icon.png')}}"></div>
+									<h6>Vision</h6>
+								</a>
+							</li>
+
+							<li class="">
+								<a href="#0">
+									<div class="image-icon"><img src="{{asset('img/projects-icon.png')}}"></div>
+									<h6>Projets</h6>
+								</a>
+							</li>
+
+							<li class="">
+								<a href="#0">
+									<div class="image-icon"><img src="{{asset('img/contact-icon.png')}}"></div>
+									<h6>Contact</h6>
+								</a>
+							</li>
+	
+							<li class="">
+								{%  if not app.user %}
+									
+                                    <a href="#0">
+									<div class="image-icon"><img src="{{asset('img/login.png')}}"></div>
+										<h6>Login</h6>
+
+									</a>
+
+								{%  else %}
+									<a href="#0">
+										<div class="image-icon"><img src="{{asset('img/logout.png')}}"></div>
+										<h6>Logout</h6>
+									</a>
+								{%  endif %}
+							</li>
+							
+						</ul>
+					</nav>
+
+					<!-- .cd-slider-nav -->
+				{% endblock %}
+			</div>
+			<ul class="cd-hero-slider"> 
+                {% block focus %}{% endblock %}
+                {% block contact %}{% endblock %}
+			</ul>
+
+				{% block projects %}{% endblock %}
+
+
+			</section>
+			<!-- .cd-hero -->
+
+
+			{% block footer %}
+				<!--==========================
+												    Footer
+												 ============================-->
+				<footer id="footer">
+
+					<p>Copyright &copy; 2020 
+																				                                
+																				        	| Designed by
+						<em>FOKAM POKA Arsène Ing</em>
+					
+					</p>
+
+				</footer>
+				<!-- #footer -->
+			{% endblock %}
+
+			{% block javascripts %}
+				<script src="{{ asset('//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js')}}"></script>
+				<script>
+					window.jQuery || document.write('<script src=" {{ asset('js/vendor/jquery-1.11.2.min.js') }}"><\/script>')
+				</script>
+				<script src="{{ asset('https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js')}}"></script>
+				<script src="{{ asset('js/plugins.js')}}"></script>
+				<script src="{{ asset('js/main.js')}}"></script>
+
+				<script>
+
+					// Login Register Form
+$(document).ready(function () {
+$('#contact_form').bootstrapValidator({ // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+feedbackIcons: {
+valid: 'glyphicon glyphicon-ok',
+invalid: 'glyphicon glyphicon-remove',
+validating: 'glyphicon glyphicon-refresh'
+},
+fields: {
+first_name: {
+validators: {
+stringLength: {
+min: 2
+},
+notEmpty: {
+message: 'Please enter your First Name'
+}
+}
+},
+last_name: {
+validators: {
+stringLength: {
+min: 2
+},
+notEmpty: {
+message: 'Please enter your Last Name'
+}
+}
+},
+user_name: {
+validators: {
+stringLength: {
+min: 8
+},
+notEmpty: {
+message: 'Please enter your Username'
+}
+}
+},
+user_password: {
+validators: {
+stringLength: {
+min: 8
+},
+notEmpty: {
+message: 'Please enter your Password'
+}
+}
+},
+confirm_password: {
+validators: {
+stringLength: {
+min: 8
+},
+notEmpty: {
+message: 'Please confirm your Password'
+}
+}
+},
+email: {
+validators: {
+notEmpty: {
+message: 'Please enter your Email Address'
+},
+emailAddress: {
+message: 'Please enter a valid Email Address'
+}
+}
+},
+contact_no: {
+validators: {
+stringLength: {
+min: 12,
+max: 12,
+notEmpty: {
+message: 'Please enter your Contact No.'
+}
+}
+},
+department: {
+validators: {
+notEmpty: {
+message: 'Please select your Department/Office'
+}
+}
+}
+}
+}
+}).on('success.form.bv', function (e) {
+$('#success_message').slideDown({
+opacity: "show"
+}, "slow") // Do something ...
+$('#contact_form').data('bootstrapValidator').resetForm();
+
+// Prevent form submission
+e.preventDefault();
+
+// Get the form instance
+var $form = $(e.target);
+
+// Get the BootstrapValidator instance
+var bv = $form.data('bootstrapValidator');
+
+// Use Ajax to submit form data
+$.post($form.attr('action'), $form.serialize(), function (result) {
+console.log(result);
+}, 'json');
+});
+});
+				</script>
+			{% endblock %}
+		</body>
+
+	</html>

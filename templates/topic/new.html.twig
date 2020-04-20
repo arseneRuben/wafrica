@@ -1,0 +1,51 @@
+{% extends 'layout/layout.html.twig' %}
+
+
+{% block projects %}
+  <li  class="selected"> 
+	<div class="heading " style="color:white">
+		<h2 class="display-4 font-italic">
+        <b>
+         {% if editMode %}   
+		    Modification du projet <i>{{topic.title}}</i>
+         {% else %}
+                Nouveau projet   
+        {% endif %}  
+        </b>  
+		</h2>
+	</div>
+ </li>
+
+	<div class="cd-full-width first-slide">
+    
+		<div class="container">
+          <div class="content first-content">
+            {{form_start(formTopic)}}
+            <div class="row form-group">
+                <div class="col-md-4">{{ form_row(formTopic.title, {'attr': {'placeholder' : "Titre du projet"}})}}</div>
+                <div class="col-md-4">{{ form_row(formTopic.description, {'attr': {'placeholder' : "Contenu du projet"}})}}</div>
+                <div class="col-md-4">{{ form_row(formTopic.author, {'attr': {'placeholder' : "Auteur du projet"}})}}</div>
+                
+            </div>
+            <div class="row form-group">
+                
+                <div class="col-md-8">{{ form_row(formTopic.category, {'attr': {'placeholder' : "Categorie du projet"}})}}</div>  
+                    <div class="col-md-4">{{ form_row(formTopic.imageFile, {'attr': {'placeholder' : "Fichier image du projet"}})}}</div> 
+                
+            </div>
+            <div class="row form-group">
+                {{form_rest(formTopic)}}
+                <button class="btn btn-primary">  
+                    {% if editMode %}     
+                    {{ button|default("Enregistrer les modifications")}}  
+                    {% else %}
+                    {{ button|default("Ajouter la projet ")}}  
+                    {% endif %}      
+                </button>
+                {{form_end(formTopic)}}
+            </div>
+         </div>
+          </div>
+	</div>
+
+{% endblock %}

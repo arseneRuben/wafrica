@@ -1,0 +1,324 @@
+{% extends 'base.html.twig' %}
+
+{% block styles %}
+			<!-- Google Fonts -->
+			<link href="{{ asset('https://use.fontawesome.com/releases/v5.6.3/css/all.css')}}" rel="stylesheet">
+			
+			<!-- Font Awesome -->
+			<!-- Bootstrap CSS File -->
+			{% stylesheets   'css2/*'  output="css2/compiled/main.css" filter="cssrewrite" %}
+
+					<link href="{{ asset_url }}" rel="stylesheet">
+			 {% endstylesheets %}
+			 
+{% endblock %}
+{% block header %}
+		
+			<!--==========================
+				Header Section
+			============================-->
+		
+             <!--Double navigation-->
+  
+
+  <!--Double navigation-->
+  <header>
+        <!-- Sidebar navigation -->
+        <div id="slide-out" class="side-nav sn-bg-4 fixed mdb-sidenav" >
+            <ul class="custom-scrollbar list-unstyled" style="max-height:100vh;">
+                <!-- Logo -->
+                <li>
+                    <div class="logo-wrapper waves-light">
+                        <a href="{{ path('homepage')}}"><img src="{{asset('img/logo2.png')}}"  class="img-fluid flex-center"></a>
+                    </div>
+                </li>
+                <!--/. Logo -->
+                <!--Social-->
+                <li>
+                    <ul class="social">
+                        <li><a href="#" class="icons-sm fb-ic"><i class="fab fa-facebook-f"> </i></a></li>
+                        <li><a href="#" class="icons-sm pin-ic"><i class="fab fa-pinterest"> </i></a></li>
+                        <li><a href="#" class="icons-sm gplus-ic"><i class="fab fa-google-plus-g"> </i></a></li>
+                        <li><a href="#" class="icons-sm tw-ic"><i class="fab fa-twitter"> </i></a></li>
+                    </ul>
+                </li>
+                <!--/Social-->
+                <!--Search Form-->
+                <li>
+                    <form class="search-form" role="search">
+                                <div class="form-group md-form mt-0 pt-1 waves-light">
+                                    <input type="text" class="form-control" placeholder="Search">
+                                </div>
+                            </form>
+                </li>
+                <!--/.Search Form-->
+                <!-- Side navigation links -->
+                <li>
+                    <ul class="collapsible collapsible-accordion">
+                        <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-chevron-right"></i> Submit blog<i class="fas fa-angle-down rotate-icon"></i></a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a href="#" class="waves-effect">Submit listing</a>
+                                    </li>
+                                    <li><a href="#" class="waves-effect">Registration form</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a class="collapsible-header waves-effect arrow-r"><i class="far fa-hand-pointer"></i> Instruction<i class="fas fa-angle-down rotate-icon"></i></a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a href="#" class="waves-effect">For bloggers</a>
+                                    </li>
+                                    <li><a href="#" class="waves-effect">For authors</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-eye"></i> About<i class="fas fa-angle-down rotate-icon"></i></a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a href="#" class="waves-effect">Introduction</a>
+                                    </li>
+                                    <li><a href="#" class="waves-effect">Monthly meetings</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a class="collapsible-header waves-effect arrow-r"><i class="far fa-envelope"></i> Contact me<i class="fas fa-angle-down rotate-icon"></i></a>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <li><a href="#" class="waves-effect">FAQ</a>
+                                    </li>
+                                    <li><a href="#" class="waves-effect">Write a message</a>
+                                    </li>
+                                    <li><a href="#" class="waves-effect">FAQ</a>
+                                    </li>
+                                    <li><a href="#" class="waves-effect">Write a message</a>
+                                    </li>
+                                    <li><a href="#" class="waves-effect">FAQ</a>
+                                    </li>
+                                    <li><a href="#" class="waves-effect">Write a message</a>
+                                    </li>
+                                    <li><a href="#" class="waves-effect">FAQ</a>
+                                    </li>
+                                    <li><a href="#" class="waves-effect">Write a message</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <!--/. Side navigation links -->
+            </ul>
+            <div class="sidenav-bg mask-strong"></div>
+        </div>
+        <!--/. Sidebar navigation -->
+        <!-- Navbar -->
+        <nav style="  background-color: #ffbb05;" class="navbar fixed-top navbar-toggleable-md navbar-expand-lg double-nav">
+        <!-- SideNav slide-out button -->
+        <div class="row" style="color:black" >
+                <div class="col-lg-2">
+                    <a href="#" data-activates="slide-out" class="button-collapse"><i class="fa fa-bars"></i></a>
+                </div>
+               
+                <div class="breadcrumb-dn mr-auto col-lg-6">
+                    <!-- <p><h4>TItre du projet</h4></p>   -->
+                </div>
+              
+                <div class="col-lg-4">
+                    <ul class="nav navbar-nav nav-flex-icons ml-auto">
+                        <li class="nav-item">
+                        <a  href="{{ path('homepage')}}" class="nav-link"><i class="fa fa-envelope"></i> <span class="clearfix d-none d-sm-inline-block">Accueil</span></a>
+                        </li>
+                        <li class="nav-item">
+                        <a  href="{{ path('fos_user_security_login')}}" class="nav-link"><i class="fa fa-comments-o"></i> <span class="clearfix d-none d-sm-inline-block">Login</span></a>
+                        </li>
+                        <li class="nav-item">
+                        <a   href="{{ path('fos_user_registration_register')}}" class="nav-link"><i class="fa fa-user"></i> <span class="clearfix d-none d-sm-inline-block">Inscription</span></a>
+                        </li>
+                        <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                        </li> -->
+                    </ul>
+                </div>
+        </div>
+    </nav>
+    <!-- /.Navbar -->
+        <!-- /.Navbar -->
+    </header>
+ 
+		{% endblock %}
+{% block projects %}
+			  <!--Main Layout-->
+  <main>
+    <div class="container-fluid mt-5">
+      <h2>Advanced Double Navigation with fixed SideNav under fixed Navbar:</h2>
+      <br>
+      <h5>1. Fixed side menu, hidden on small devices.</h5>
+      <h5>2. Fixed Navbar. It will always stay visible on the top, even when you scroll down.</h5>
+      
+    </div>
+    <div class="container-fluid tm-section tm-section-2">
+            <div class="row tm-media-row">
+                <div class="col-xs-8 col-sm-2 col-md-2 col-lg-2">
+                    <img  src="{{asset('img/tm-img-320x320-1.jpg')}}"   alt="Image" class="strombinoscope img-fluid img-circle img-thumbnail tm-media-img">
+                </div>
+                <div class="col-xs-8 col-sm-10 col-md-10 col-lg-10">
+                    <div class="tm-media-text-container">
+                        <h3 class="tm-media-title tm-gray-text">Interdum et malesuada fames</h3>
+                        <p class="tm-media-description tm-gray-text-2">Aliquam dapibus felis fringilla ligula mittis, ut congue purus gravida. Suspendisse suscipit tellus id odio mollis, id tincidunt metus gravida. Ut at arcu in elit maximus eleifend.</p>    
+                    </div>                    
+                </div>
+            </div>
+             <div class="row tm-media-row">
+                <div class="col-xs-8 col-sm-2 col-md-2 col-lg-2">
+                    <img  src="{{asset('img/tm-img-320x320-1.jpg')}}"   alt="Image" class="strombinoscope img-fluid img-circle img-thumbnail tm-media-img">
+                </div>
+                <div class="col-xs-8 col-sm-10 col-md-10 col-lg-10">
+                    <div class="tm-media-text-container">
+                        <h3 class="tm-media-title tm-gray-text">Interdum et malesuada fames</h3>
+                        <p class="tm-media-description tm-gray-text-2">Aliquam dapibus felis fringilla ligula mittis, ut congue purus gravida. Suspendisse suscipit tellus id odio mollis, id tincidunt metus gravida. Ut at arcu in elit maximus eleifend.</p>    
+                    </div>                    
+                </div>
+            </div>
+            
+        <section class="tm-section tm-section-3 tm-bg-purple">
+            <div class="container-fluid tm-section-3-inner">
+                <div class="row center-block text-xs-center tm-section-3-header">
+                    <div class="col-xs-12">
+                        <h2 class="tm-text-white tm-section-3-title">Projets du même auteur</h2>
+                        <p class="tm-text-white tm-section-3-description">Curabitur porta scelerisque justo, ut ultrices lacus auctor eget. Proin volutpat eu mi nec consequat. Integer porta tristique quam.</p>      
+                    </div>
+                </div>
+                <div class="row">                    
+                    
+                    <div class="tm-plan-boxes-container">
+                        
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-table-col">
+                                
+                            <table class="tm-plan">
+                                <thead>
+                                    <tr>
+                                        <th class="text-xs-center tm-plan-table-header">Projet 1</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tm-bg-light-purple">
+                                    <tr class="tm-plan-table-row"><td class="tm-plan-table-cell">Sed porttitor lobortis</td></tr>
+                                    <tr class="tm-plan-table-row"><td class="tm-plan-table-cell">10 sit amet luctus sapien</td></tr>
+                                    <tr class="tm-plan-table-row"><td class="tm-plan-table-cell">15 eget sagittis</td></tr>
+                                    <tr class="tm-plan-table-row"><td class="tm-plan-table-cell">20 aliquam eros nec tortor</td></tr>
+                                    <tr class="tm-plan-table-row"><td class="tm-plan-table-cell">30 vel suscipit turpis</td></tr>                                    
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td class="text-xs-center">
+                                            <a href="#" class="tm-plan-link tm-plan-link-purple">Sign up</a>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>  
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-table-col">
+                            
+                            <table class="tm-plan">
+                                <thead>
+                                    <tr>
+                                        <th class="text-xs-center tm-plan-table-header">Projet 2</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tm-bg-light-green">
+                                    <tr class="tm-plan-table-row"><td class="tm-plan-table-cell">Sed porttitor lobortis</td></tr>
+                                    <tr class="tm-plan-table-row"><td class="tm-plan-table-cell">20 sit amet luctus sapien</td></tr>
+                                    <tr class="tm-plan-table-row"><td class="tm-plan-table-cell">25 eget sagittis</td></tr>
+                                    <tr class="tm-plan-table-row"><td class="tm-plan-table-cell">35 aliquam eros nec tortor</td></tr>
+                                    <tr class="tm-plan-table-row"><td class="tm-plan-table-cell">45 vel suscipit turpis</td></tr>                                    
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td class="text-xs-center">
+                                            <a href="#" class="tm-plan-link tm-plan-link-green">Sign up</a>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table> 
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-table-col">
+
+                            <table class="tm-plan">
+                                <thead>
+                                    <tr>
+                                        <th class="text-xs-center tm-plan-table-header">Projet 3</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tm-bg-light-orange">
+                                    <tr class="tm-plan-table-row"><td class="tm-plan-table-cell">Sed porttitor lobortis</td></tr>
+                                    <tr class="tm-plan-table-row"><td class="tm-plan-table-cell">30 sit amet luctus sapien</td></tr>
+                                    <tr class="tm-plan-table-row"><td class="tm-plan-table-cell">40 eget sagittis</td></tr>
+                                    <tr class="tm-plan-table-row"><td class="tm-plan-table-cell">50 aliquam eros nec tortor</td></tr>
+                                    <tr class="tm-plan-table-row"><td class="tm-plan-table-cell">60 vel suscipit turpis</td></tr>                                    
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td class="text-xs-center">
+                                            <a href="#" class="tm-plan-link tm-plan-link-orange">Sign up</a>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table> 
+
+                        </div>
+
+                    </div> <!-- tm-plan-boxes-container -->
+         
+                </div>
+            </div>            
+        </section> 
+  </main>
+  <!--Main Layout-->
+
+        
+ 
+
+	{% endblock %}
+				
+     	{% block footer %}
+				<!--==========================
+						Footer
+				============================-->
+				<footer id="footer" >
+
+					<p style="  background-color: #ffbb05;    
+    margin: 0px;
+    padding: 25px 0px;
+    text-align: center;
+    font-weight: 400;" >Copyright &copy; 2020 
+														                                
+														        	| Designed by
+						<em>FOKAM POKA Arsène Ing</em>
+					</p>
+
+				</footer>
+				<!-- #footer -->
+		{% endblock %}
+
+
+{% block javascripts %}
+<script type="text/javascript" src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/popper.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>
+<script  type="text/javascript">  $(".button-collapse").sideNav(); </script> 
+{% endblock %}

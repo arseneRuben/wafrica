@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+
+{% block menu %}
+
+	<nav style="padding: 50px 50px 20px;">
+		<div class="container">
+			<span class="cd-marker item-1"></span>
+
+			<div class="row">
+				
+				<div class="col-md-2">
+					<a href="{{ path('homepage') }}">
+						<img src="{{asset('img/home.png')}}">
+
+					</a>
+				</div>
+		
+				<div class="col-md-2">
+					<a href="{{ path('topic_new') }}">
+						<img src="{{asset('img/edit.png')}}">
+						<h6>Nouveau projet</h6>
+					</a>
+				</div>
+				{% if is_granted('ROLE_ADMIN') %}
+				<div class="col-md-2">
+					<a href="{{ path('category_new') }}">
+						<img src="{{asset('img/edit.png')}}">
+						<h6> Categorie de projets</h6>
+					</a>
+				</div>
+				<div class="col-md-2">
+					<a href="{{ path('topic_update', {'id': topic.id}) }}">
+						<img src="{{asset('img/edit.png')}}">
+						<h6> Modification de  projets</h6>
+					</a>
+				</div>
+				{% endif %}
+				<div class="col-md-2">
+					<a href="#0">
+						<img src="{{asset('img/user.png')}}">
+						<h6>Profil utilisateur</h6>
+					</a>
+				</div>
+				<div class="col-md-2">
+					{%  if not app.user %}
+						<a href="{{path('app_login')}}">
+							<img src="{{asset('img/login.png')}}">
+
+						</a>
+					{%  else %}
+						<a href="{{path('app_logout')}}">
+							<img src="{{asset('img/logout.png')}}">
+							<h6>Se deconnecter</h6>
+						</a>
+					{%  endif %}
+				</div>
+				
+			</div>
+		</div>
+	</nav>
+
+
+{% endblock %}
+
+{% block focus %}{% endblock %}
+
+
+{% block contact %}{% endblock %}
+{% block projects %}{% endblock %}

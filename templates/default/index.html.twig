@@ -1,0 +1,416 @@
+{% extends 'base.html.twig' %}
+{% block styles %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('css1/login_register.css')}}">
+{% endblock %}
+{% block focus %}
+
+	<li class="selected">
+		<div class="heading">
+			<h1>WITH AFRICA</h1>
+			<span>Vers une Afrique de raison</span>
+		</div>
+		<div class="cd-full-width first-slide">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="content first-content">
+							<h4>{{topics[3].title| raw}}</h4>
+							<p>{{topics[3].description|slice(0, 550) ~ '...' | raw}}
+								<a href="{{ path('topic_show', {'id': topics[3].id}) }}">La suite</a>
+							</p>
+							<!-- <div class="primary-button">
+																																																																																																																                                        <a href="#">Discover More</a>
+																																																																																																																                                        </div>-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</li>
+
+	<li class="">
+		<div class="heading">
+			<h1>About Us</h1>
+			<span>Get More Info About Our Agency</span>
+		</div>
+		<div class="cd-half-width second-slide">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="content second-content">
+							<div class="row">
+								<div class="col-md-4 left-image">
+									<img src="{{asset('img/left-about-image.jpg')}}">
+								</div>
+								<div class="col-md-8">
+									<div class="right-about-text">
+										<h4>{{topics[0].title| raw}}</h4>
+										<p>{{topics[0].description | slice(0, 550) ~ '...' | raw}}
+											<a href="{{ path('topic_show', {'id': topics[0].id}) }}">Les details</a>
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-8">
+									<div class="left-about-text">
+										<h4>{{topics[1].title| raw}}</h4>
+										<p>{{topics[1].description| slice(0, 550) ~ '...' | raw}}
+											<a href="{{ path('topic_show', {'id': topics[1].id}) }}">Les details</a>
+										</p>
+									</div>
+								</div>
+								<div class="col-md-4 right-image">
+									<img src="{{asset('img/right-about-image.jpg')}}">
+								</div>
+
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</li>
+</div></li><li class="">
+<div class="heading">
+	<h1>
+		<h4>{{topics[2].title| raw}}</h4>
+	</h1>
+
+</div>
+<div class="cd-half-width third-slide">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="content third-content">
+					<div class="row">
+						<div class="col-md-4 left-image">
+							<img src="{{asset('img/left-feature-image.png')}}">
+						</div>
+						<div class="col-md-8">
+							<div class="right-feature-text">
+
+								<div class="left-about-text">
+									<h4>{{topics[1].title}}</h4>
+									<p>{{topics[1].description | raw}}</p>
+									<a href="{{ path('topic_show', {'id': topics[1].id}) }}">Les details</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</li></li><li class="">
+<div class="heading">
+	<h1>Our projects</h1>
+	<span>Here you can check our recent projects</span>
+</div>
+<div class="cd-half-width fourth-slide">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="content fourth-content">
+					<div class="row">
+						{% for topic in topics %}
+							<div class="col-md-3 project-item overlay-image _bj">
+
+								<a href="{{ path('topic_show', {'id': topic.id}) }}">
+									{% if topic.filename %}
+										<img src="{{asset('images/topic/'~topic.filename)}}" class="img-rounded image _bk"/>
+									{% else %}
+										<img src="{{asset('images/topic/default.png')}}" class="img-rounded  image _bk "/>
+									{% endif %}
+									<div class="text _q ">
+										<h4>{{ topic.title| raw }}</h4>
+									</div>
+								</a>
+							</div>
+						{% else %}
+							<div class="col-md-3 project-item">
+								no projects found
+							</div>
+						{% endfor %}
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div></li>{% endblock %}{% block contact %}<li class="">
+<div class="heading">
+	<h1>Contact us</h1>
+	<span>You'll be responded within 48 hrs</span>
+</div>
+<div class="cd-half-width fivth-slide">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="content fivth-content">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="left-info">
+								<p>Maecenas imperdiet sagittis lacus, ut consequat velit iaculis id. Praesent eu consequat urna. Morbi justo dolor, ornare sed lorem et, auctor iaculis ligula.
+									<br><br>
+									<em>5566 Donec mollis libero<br>at metus luctus 10660</em>
+								</p>
+								<ul class="social-icons">
+									<i>
+										<a href="#">
+											<i class="fa fa-facebook"></i>
+										</a>
+									</i>
+									<i>
+										<a href="#">
+											<i class="fa fa-twitter"></i>
+										</a>
+									</i>
+									<i>
+										<a href="#">
+											<i class="fa fa-linkedin"></i>
+										</a>
+									</i>
+									<i>
+										<a href="#">
+											<i class="fa fa-rss"></i>
+										</a>
+									</i>
+									<i>
+										<a href="#">
+											<i class="fa fa-behance"></i>
+										</a>
+									</i>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-8">
+							
+							
+							{{ form_start(contactForm, {'action':path('homepage'), 'method': 'POST',  'attr': {'id': 'contact'}}) }}
+							<fieldset>
+							<div class="row">
+								
+										{% if app.user %}
+											<div class="col-md-6">{{ form_row(contactForm.username, {'label': 'Email','value' :  app.user.username, 'attr': {'placeholder': 'Adresse email', 'class':'form form-control'}}) }}</div>
+										<div class="col-md-6">{{ form_row(contactForm.email, {'label': 'Email','value' :  app.user.email, 'attr': {'placeholder': 'Adresse email', 'class':'form form-control'}}) }}</div>
+										{% else %}
+											<div class="col-md-6">{{ form_row(contactForm.username, {'label': 'Nom complet','value' : 'Nom ', 'attr': {'placeholder': 'Identite ...', 'class':'form form-control'}}) }}</div>
+											<div class="col-md-6">{{ form_row(contactForm.email, {'label': 'Email','value' : 'adresse email', 'attr': {'placeholder': 'Adresse email', 'class':'form form-control'}}) }}</div>
+										
+										{% endif %}
+							
+							</div>
+							<div class="row">
+									
+										<div class="col-md-12">{{ form_row(contactForm.object, {'label': 'Objet', 'attr': {'placeholder': 'L\'objet de votre message ...', 'class':'form form-control'}}) }}</div>
+										
+                            </div>
+							<div class="row">
+									
+										<div class="col-md-12">{{ form_row(contactForm.message, {'label': 'Message', 'attr': {'placeholder': 'Votre message ...', 'class':'form form-control'}}) }}</div>
+							   </div>
+							</fieldset>
+							<br/><br/>
+							<div class="row">
+									<div class="col-md-5"></div>
+									<div class="col-md-4">{{ form_row(contactForm.envoyer, {'value' : 'Envoyer', 'attr': { 'class':'btn btn-warning'}}) }}</div>
+									<div class="col-md-3"></div>
+							</div>
+                             
+							{{ form_end(contactForm) }}
+								
+									
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div></li><li class="">
+<div class="heading">
+	{% if app.user %}
+		<h1>Remerciement
+		</h1>
+	{% else %}
+		<h1>Se connecter
+		</h1>
+		<span>Se connecter pour participer au forum</span>
+	{% endif %}
+</div>
+<div class="cd-half-width fivth-slide">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="content fivth-content">
+					<div class="row">
+						{% if app.user %}
+							<div class="col-md-3">
+								<div class="left-info">
+									<img src="{{asset('img/logo2.png')}}">
+									<ul class="social-icons">
+										<i>
+											<a href="#">
+												<i class="fa fa-facebook"></i>
+											</a>
+										</i>
+										<i>
+											<a href="#">
+												<i class="fa fa-twitter"></i>
+											</a>
+										</i>
+										<i>
+											<a href="#">
+												<i class="fa fa-linkedin"></i>
+											</a>
+										</i>
+										<i>
+											<a href="#">
+												<i class="fa fa-rss"></i>
+											</a>
+										</i>
+										<i>
+											<a href="#">
+												<i class="fa fa-behance"></i>
+											</a>
+										</i>
+									</ul>
+								</div>
+							</div>
+							<div class="col-md-9 text-center">
+								<h1 class="display-3">Thank You!</h1>
+								<p class="lead">
+
+									Merci d'avoir participer au forum
+									<strong>Withafrica</strong>
+									.</p>
+								<hr>
+
+								<p class="lead">
+									<a class="btn btn-warning btn-lg" href="{{path('app_logout')}}" role="button">Se deconnecter</a>
+								</p>
+							</div>
+						{% else %}
+							<div class="col-md-3">
+								<div class="left-info">
+									<p>Maecenas imperdiet sagittis lacus, ut consequat velit iaculis id. Praesent eu consequat urna. Morbi justo dolor, ornare sed lorem et, auctor iaculis ligula.
+										<br><br>
+										<em>5566 Donec mollis libero<br>at metus luctus 10660</em>
+									</p>
+									<ul class="social-icons">
+										<i>
+											<a href="#">
+												<i class="fa fa-facebook"></i>
+											</a>
+										</i>
+										<i>
+											<a href="#">
+												<i class="fa fa-twitter"></i>
+											</a>
+										</i>
+										<i>
+											<a href="#">
+												<i class="fa fa-linkedin"></i>
+											</a>
+										</i>
+										<i>
+											<a href="#">
+												<i class="fa fa-rss"></i>
+											</a>
+										</i>
+										<i>
+											<a href="#">
+												<i class="fa fa-behance"></i>
+											</a>
+										</i>
+									</ul>
+								</div>
+							</div>
+
+							<div class="col-md-9">
+								<form class="well form-horizontal" method="post" action="{{path('app_login')}}" id="contact_form">
+
+									{% if error %}
+										<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+									{% endif %}
+
+									{% if app.user %}
+
+										<div class="mb-3">
+											<fieldset>
+												You are logged in as
+												{{ app.user.username }},
+												<a href="{{ path('app_logout') }}">Logout</a>
+											</fieldset>
+										</div>
+
+									{% endif %}
+
+
+									<fieldset>
+
+
+										<legend>
+											<center>
+												<h2>
+													<b>Formulaire d'authentification</b>
+												</h2>
+											</center>
+										</legend><br>
+										<div class="form-group row">
+											<label class="col-md-4 control-label" for="email">Email</label>
+											<div class="col-md-8 inputGroupContainer">
+												<div class="input-group">
+													<span class="input-group-addon">
+														<i class="glyphicon glyphicon-user"></i>
+													</span>
+													<input type="text" value="{{ last_username }}" name="email" id="email" class="form-control" required/>
+
+												</div>
+											</div>
+										</div>
+										<div class="form-group row">
+											<label class="col-md-4 control-label" for="password">Mot de passe</label>
+											<div class="col-md-8 inputGroupContainer">
+												<div class="input-group">
+													<span class="input-group-addon">
+														<i class="glyphicon glyphicon-user"></i>
+													</span>
+													<input name="password" id="password" placeholder="Password" class="form-control" type="password" required>
+												</div>
+											</div>
+										</div>
+
+									</fieldset>
+
+
+									<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+
+									<div class="form-group">
+										<label class="col-md-4 control-label"></label>
+										<div class="col-md-4"><br>
+
+											&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+											<button type="submit" class="btn btn-lg btn-warning">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 	Sign in
+												<span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+											</button>
+										</div>
+									</div>
+
+
+								</form>
+							</div>
+						{% endif %}
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</li></li></div></li>{% endblock %}

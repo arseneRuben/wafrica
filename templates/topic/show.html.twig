@@ -1,0 +1,154 @@
+{% extends 'layout/layout.html.twig' %}
+
+
+{% block projects %}
+	<div class="heading " style="color:white">
+		<h2 class="display-4 font-italic">
+			<b>{{topic.title}}</b>
+		</h2>
+	</div>
+
+
+	<div class="cd-full-width first-slide">
+		<div class="container">
+			<div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+
+
+				<div class="row mb-2">
+					<div class="col-md-3 mt-2">
+						<div class="row no-gutters border rounded  shadow-sm h-md-250 position-relative">
+
+							<div class="col-auto d-none d-lg-block">
+
+								{% if topic.filename %}
+									<img class="img-thumbnail" src="{{asset('images/topic/'~topic.filename)}}"/>
+								{% else %}
+									<img class="img-thumbnail" src="{{asset('images/topic/default.png')}}"/>
+								{% endif %}
+
+							</div>
+						</div>
+					</div>
+					<div class="col-md-9 mt-2">
+						<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+							<p class="lead my-3">
+								{{topic.description | raw}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% if app.user  %}
+			<div class="row ">
+				{{form_start(formComment)}}
+				<div class="col-md-2">
+
+
+					<img height="100px" src="{{ vich_uploader_asset(app.user) }}" class="img-round"/>
+
+				</div>
+				<div class=" col-md-10  p-3 mb-2 bg-secondary text-white">
+					<div class="row form-group">
+						<div class="col-md-10">{{ form_widget(formComment.content, {'attr': {'placeholder' : "Qu'en pensez vous?"}})}}</div>
+						<div class="col-md-2">
+							<button class="btn btn-primary">
+								{{ button|default("Commenter ")}}
+
+							</button>
+						</div>
+					</div>
+				</div>
+				{{form_end(formComment)}}
+			</div>
+			{% endif %}
+
+			<section id="commentaires" class="container">
+				{% for participation in topic.participations %}
+					<hr/>
+					<div class="row ">
+						<div class="col-md-2">
+
+							<strong>
+								<h6>
+									<a href="#0">{{participation.author.username}}</a>(<small>
+										{{participation.updatedAt|date('Y/m/d')}}
+									</small>)
+								</h6>
+							</strong>
+
+							<img height="100px" src="{{ vich_uploader_asset(participation.author) }}" alt="{{ participation.author.username }}" class="img-round"/>
+
+						</div>
+						<div class=" col-md-10  p-3 mb-2 bg-secondary text-white">
+
+							{{participation.content | raw}}
+						</div>
+					</div>
+					<div class="ratings">
+						<p class="pull-right"></p>
+						<p id= "{{participation.id}}">
+							<!-- Like button -->
+							<span class="glyphicon glyphicon-thumbs-up" onClick= {% if(app.user) %} "rating( {{participation.id}}, 1 , 2, 'like_count{{participation.id}}' )" {% else %} ""  {% endif %}></span>&nbsp;
+							<!-- Like counter -->
+							<span class="counter" id="like_count{{participation.id}}">{{participation.like}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+							<!-- Dislike button -->
+							<span class="glyphicon glyphicon-thumbs-down"  onClick= {% if(app.user) %} "rating( {{participation.id}}, 0 , 2, 'dislike_count{{participation.id}}' )" {% else %} ""  {% endif %} ></span>&nbsp;
+							<!-- Dislike counter -->
+							<span class="counter" id="dislike_count{{participation.id}}">{{participation.dislike}}</span>
+						</p>
+					</div>
+
+				{% endfor %}
+
+			</section>
+		<!-- /	<div class="row mb-2">
+				<a href="{{ path('topic_update', {'id': topic.id}) }}" class="btn btn-warning">
+
+					{{ button|default("Apporter des modifications")}}
+
+				</a>
+			</div> -->
+		</div>
+
+
+	</div>
+
+
+	
+</div>
+<!-- /.container -->{% endblock %}
+{% block javascripts %}
+ {{ parent() }}
+	<script>
+/**
+ * cwRating() function sends a request to the server-side
+ * to insert like or dislike number in the database.
+ * On success, shows the rating number count to the specified element.  
+ *
+ * Author: CodexWorld
+ * 
+ * @param id - Unique ID to save like or dislike for this respective ID.
+ * @param type - Use 1 for like and 0 for dislike.
+ * @param target - The div ID where the total number of likes or dislikes will display.
+ * 
+ */
+ 
+function rating(id, liking, type, target){
+	tag = document.getElementById(target);
+	
+    $.ajax({
+        type:'POST',
+        url:"{{ path('liking_managing') }}",
+        data:'id='+id+'&liking='+liking+'&type='+type,
+        success:function(msg){
+            if(msg == 'err'){
+                alert('Some problem occured, please try again.');
+            }else{
+				console.log(msg);
+			  $('#'+target).html(msg);
+            }
+        }
+    });
+}
+</script>
+{% endblock %}

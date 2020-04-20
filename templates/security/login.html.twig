@@ -1,0 +1,154 @@
+{% extends 'layout/layout.html.twig' %}
+
+{% block title %}Log in!
+{% endblock %}
+
+{% block projects %}
+
+	<div class="heading">
+		<h1>Se connecter
+		</h1>
+		<span>Se connecter pour participer au forum</span>
+	</div>
+	<div class="cd-half-width fivth-slide">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="content fivth-content">
+						<div class="row">
+
+							<div class="col-md-3">
+								<div class="left-info">
+									<p>Maecenas imperdiet sagittis lacus, ut consequat velit iaculis id. Praesent eu consequat urna. Morbi justo dolor, ornare sed lorem et, auctor iaculis ligula.
+										<br><br>
+										<em>5566 Donec mollis libero<br>at metus luctus 10660</em>
+									</p>
+									<ul class="social-icons">
+										<i>
+											<a href="#">
+												<i class="fa fa-facebook"></i>
+											</a>
+										</i>
+										<i>
+											<a href="#">
+												<i class="fa fa-twitter"></i>
+											</a>
+										</i>
+										<i>
+											<a href="#">
+												<i class="fa fa-linkedin"></i>
+											</a>
+										</i>
+										<i>
+											<a href="#">
+												<i class="fa fa-rss"></i>
+											</a>
+										</i>
+										<i>
+											<a href="#">
+												<i class="fa fa-behance"></i>
+											</a>
+										</i>
+									</ul>
+								</div>
+							</div>
+							<div class="col-md-9">
+								<form class="well form-horizontal" method="post" action="{{path('app_login')}}" id="contact_form">
+
+									{% if error %}
+										<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+									{% endif %}
+
+									{% if app.user %}
+										<div class="mb-3">
+											You are logged in as
+											{{ app.user.username }},
+											<a href="{{ path('app_logout') }}">Logout</a>
+										</div>
+									{% endif %}
+									<fieldset>
+
+										<!-- Form Name -->
+										<legend>
+											<center>
+												<h2>
+													<b>Formulaire d'authentification</b>
+												</h2>
+											</center>
+										</legend><br>
+
+
+										<!-- Text input-->
+
+										<div class="form-group">
+											<label class="col-md-4 control-label" for="email">Email</label>
+											<div class="col-md-4 inputGroupContainer">
+												<div class="input-group">
+													<span class="input-group-addon">
+														<i class="glyphicon glyphicon-user"></i>
+													</span>
+													<input type="text" value="{{ last_username }}" name="email" id="email" class="form-control" required autofocus>
+
+												</div>
+											</div>
+										</div>
+
+										<!-- Text input-->
+
+
+										<div class="form-group">
+											<label for="password" class="col-md-4 control-label">Mot de passe</label>
+											<div class="col-md-4 inputGroupContainer">
+												<div class="input-group">
+													<span class="input-group-addon">
+														<i class="glyphicon glyphicon-user"></i>
+													</span>
+													<input name="password" id="password" placeholder="Password" class="form-control" type="password" required>
+												</div>
+											</div>
+										</div>
+
+
+										<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+										<!-- Success message
+																																									<div class="alert alert-success" role="alert" id="success_message">Success
+																																										<i class="glyphicon glyphicon-thumbs-up"></i>
+																																										Success!.</div>
+																																										 -->
+										<!-- Button -->
+											<div class="form-group"> <label class="col-md-4 control-label"></label>
+											<div class="col-md-4"><br>
+												
+												&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                <button type="submit" class="btn btn-lg btn-warning">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 	Sign in
+													<span class="glyphicon glyphicon-send"></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                </button>
+											</div>
+										</div>
+
+									</fieldset>
+								</form>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	{#
+			        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+			        See https://symfony.com/doc/current/security/remember_me.html
+			
+			        <div class="checkbox mb-3">
+			            <label>
+			                <input type="checkbox" name="_remember_me"> Remember me
+			            </label>
+			        </div>
+			    #}
+
+
+</form>{% endblock %}

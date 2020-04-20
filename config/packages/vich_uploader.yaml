@@ -1,0 +1,17 @@
+vich_uploader:
+    db_driver: orm
+    mappings:
+        topic_image:
+            uri_prefix:  /images/topic
+            upload_destination : '%kernel.project_dir%/public/images/topic'
+        topic_author:
+            uri_prefix:  /images/author
+            upload_destination : '%kernel.project_dir%/public/images/author'
+
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true
+    #mappings:
+    #    products:
+    #        uri_prefix: /images/products
+    #        upload_destination: '%kernel.project_dir%/public/images/products'
